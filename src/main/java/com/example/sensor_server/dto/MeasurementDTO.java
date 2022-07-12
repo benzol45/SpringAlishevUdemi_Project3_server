@@ -5,6 +5,7 @@ import com.example.sensor_server.entity.Measurement;
 import com.example.sensor_server.service.SensorService;
 
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -14,7 +15,7 @@ public class MeasurementDTO {
 
     @NotNull(message = "Value must be specified")
     @Min(value = -100, message = "It's impossible for outside, VERY cold")
-    @Min(value = 100, message = "It's impossible for outside, VERY hot")
+    @Max(value = 100, message = "It's impossible for outside, VERY hot")
     private float value;
 
     @NotNull(message = "I don't know it's raining or not")
